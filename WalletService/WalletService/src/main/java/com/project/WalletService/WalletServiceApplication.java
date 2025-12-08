@@ -7,6 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 
 @SpringBootApplication
+@EnableDiscoveryClient
 public class WalletServiceApplication {
 
 	public static void main(String[] args) {
