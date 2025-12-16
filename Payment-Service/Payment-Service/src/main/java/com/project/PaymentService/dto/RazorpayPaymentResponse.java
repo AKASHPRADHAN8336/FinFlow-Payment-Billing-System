@@ -1,68 +1,56 @@
-package com.project.PaymentService.model;
+package com.project.PaymentService.dto;
 
-import jakarta.persistence.*;
-import lombok.*;
+import com.project.PaymentService.model.PaymentStatus;
+import lombok.Builder;
 
 import java.math.BigDecimal;
-import java.time.Instant;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "payment")
-@Getter
-@Setter
-public class Payment {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class RazorpayPaymentResponse {
 
+
+    private Long paymentId;
     private Long userId;
-
     private Long billId;
-
     private BigDecimal amount;
-    @Enumerated(EnumType.STRING)
-    @Column(length = 20)
     private PaymentStatus status;
-
     private LocalDateTime paymentTime;
+    private String razorpayOrderId;
 
-    public Payment(Long id, Long userId, Long billId, BigDecimal amount, PaymentStatus status, LocalDateTime paymentTime) {
-        this.id = id;
+
+
+    public RazorpayPaymentResponse(Long paymentId, Long userId, Long billId, BigDecimal amount, PaymentStatus status, LocalDateTime paymentTime,String razorpayOrderId) {
+        this.paymentId = paymentId;
         this.userId = userId;
         this.billId = billId;
         this.amount = amount;
         this.status = status;
         this.paymentTime = paymentTime;
-    }
-
-
-    public Payment( Long userId, Long billId, BigDecimal amount) {
-
-        this.userId = userId;
-        this.billId = billId;
-        this.amount = amount;
-
-    }
-
-    public Payment() {
+        this.razorpayOrderId=razorpayOrderId;
     }
 
 
 
-    @PrePersist
-    public void onCreate() {
-        this.paymentTime = LocalDateTime.now();
+    public RazorpayPaymentResponse() {
     }
 
 
-    public Long getId() {
-        return id;
+
+    public String getRazorpayOrderId() {
+        return razorpayOrderId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setRazorpayOrderId(String razorpayOrderId) {
+        this.razorpayOrderId = razorpayOrderId;
+    }
+
+    public Long getPaymentId() {
+        return paymentId;
+    }
+
+    public void setPaymentId(Long paymentId) {
+        this.paymentId = paymentId;
     }
 
     public Long getUserId() {

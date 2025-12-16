@@ -11,16 +11,17 @@
         <module name="config-server" />
         <module name="service-registry" />
       </profile>
-      <profile name="Annotation profile for BillingService" enabled="true">
+      <profile name="Annotation profile for Razorpay-Payment" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
+        <module name="Razorpay-Payment" />
         <module name="UserService" />
-        <module name="WalletService" />
         <module name="Payment-Service" />
+        <module name="WalletService" />
         <module name="BillingService" />
       </profile>
     </annotationProcessing>
@@ -29,6 +30,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="BillingService" options="-parameters" />
       <module name="Payment-Service" options="-parameters" />
+      <module name="Razorpay-Payment" options="-parameters" />
       <module name="UserService" options="-parameters" />
       <module name="WalletService" options="-parameters" />
       <module name="api-gateway" options="-parameters" />

@@ -1,9 +1,11 @@
 package com.project.PaymentService.dto;
 
 import com.project.PaymentService.model.PaymentStatus;
+import lombok.Builder;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
 
 public class PaymentResponse {
 
